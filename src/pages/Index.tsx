@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import BottomNav from "./BottomNav";
+import BottomNav from "../components/BottomNav";
 
 export default function Index() {
   const [tabs, setTabs] = useState<string[]>([]);
