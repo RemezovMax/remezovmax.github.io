@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
-import { useInitData } from "@twa-dev/sdk";
+import { retrieveLaunchParams } from "@telegram-apps/sdk";
 import BottomNav from "../components/BottomNav";
 
 export default function Profile() {
-  const initData = useInitData();
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
-    if (initData?.user) {
+    const { initData } = retrieveLaunchParams();
+    if (initData && initData.user) {
       setUser(initData.user);
+    } else {
+      console.error("Данные пользователя отсутствуют или недоступны.");
     }
-  }, [initData]);
+  }, []);
 
   return (
     <div>
       {user ? (
         <div>
-          <img src={user.photo_url} alt={user.first_name} />
-          <h2>{user.first_name} {user.last_name}</h2>
+          <img src={user.photoUrl} alt={user.firstName} />
+          <h2>
+            {user.firstName} {user.lastName}
+          </h2>
           <p>@{user.username}</p>
         </div>
       ) : (
