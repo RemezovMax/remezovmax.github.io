@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useInitData } from "@twa-dev/sdk";
+import BottomNav from "../components/BottomNav";
 
 export default function Profile() {
   const initData = useInitData();
@@ -13,15 +14,17 @@ export default function Profile() {
 
   return (
     <div>
+      <h1>Профиль</h1>
       {user ? (
         <div>
-          <img src={user.photo_url} alt={user.first_name} />
+          <img src={user.photo_url} alt={user.first_name} width="100" />
           <h2>{user.first_name} {user.last_name}</h2>
           <p>@{user.username}</p>
         </div>
       ) : (
         <p>Загрузка...</p>
       )}
+      <BottomNav />
     </div>
   );
 }
