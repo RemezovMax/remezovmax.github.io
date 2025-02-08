@@ -3,14 +3,8 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/",
+  base: "/", // Указываем корень проекта
   server: {
     port: 3000,
-  },
-  esbuild: {
-    legalComments: "none", // Убираем лишние комментарии
-  },
-  build: {
-    sourcemap: false, // Отключаем eval-строки
   },
 });
