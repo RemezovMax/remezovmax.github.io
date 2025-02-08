@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import BottomNav from "../components/BottomNav";
 
 export default function Index() {
   const [tabs, setTabs] = useState<string[]>([]);
@@ -25,7 +24,6 @@ export default function Index() {
         <div key={index}>{tab}</div>
       ))}
       <button onClick={addTab}>Добавить вкладку</button>
-      <BottomNav />
     </div>
   );
 }
