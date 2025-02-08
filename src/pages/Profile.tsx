@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useInitData } from "@twa-dev/sdk";
+import BottomNav from "../components/BottomNav";
 
 export default function Profile() {
   const initData = useInitData();
@@ -22,6 +23,7 @@ export default function Profile() {
       ) : (
         <p>Загрузка...</p>
       )}
+      <BottomNav />
     </div>
   );
 }

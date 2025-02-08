@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { evaluate } from "mathjs"; // Импортируем функцию для вычислений
+import BottomNav from "../components/BottomNav";
 
 export default function Calculation() {
   const [value, setValue] = useState("");
@@ -25,6 +26,7 @@ export default function Calculation() {
       />
       <button onClick={calculate}>Вычислить</button>
       {result !== null && <p>Результат: {result}</p>}
+      <BottomNav />
     </div>
   );
 }
