@@ -1,14 +1,16 @@
 import { useState } from "react";
+import { evaluate } from "mathjs"; // Импортируем функцию для вычислений
 
 export default function Calculation() {
   const [value, setValue] = useState("");
-  const [result, setResult] = useState<number | null>(null);
+  const [result, setResult] = useState<number | string | null>(null);
 
   const calculate = () => {
     try {
-      setResult(eval(value));
+      const res = evaluate(value); // Вычисляем выражение с помощью math.js
+      setResult(res);
     } catch (e) {
-      alert("Ошибка в выражении!");
+      setResult("Ошибка в выражении!"); // Если ошибка, показываем сообщение
     }
   };
 
@@ -19,6 +21,7 @@ export default function Calculation() {
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        placeholder="Введите выражение, например: 2+2*2"
       />
       <button onClick={calculate}>Вычислить</button>
       {result !== null && <p>Результат: {result}</p>}
